@@ -14,3 +14,6 @@ Process and Parts of Article Writer
 2. Summarize
 
 3. Spin
+
+6/21/21
+- Working on building an article scraper that takes in a url and formats the text and headers properly
