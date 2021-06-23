@@ -17,3 +17,8 @@ Process and Parts of Article Writer
 
 6/21/21
 - Working on building an article scraper that takes in a url and formats the text and headers properly
+- Tested Quillbot, using all three features (summarize, spin, grammar check)
+    - Summary tool was questionable
+
+6/22/21
+- Working on article summarizer and spinner, testing out nlpcloud
