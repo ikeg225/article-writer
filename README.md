@@ -22,3 +22,12 @@ Process and Parts of Article Writer
 
 6/22/21
 - Working on article summarizer and spinner, testing out nlpcloud
+    - Testing plagerism on 1text.com
+        - Only using summary tool (nlpcoud), 0.4% unique
+        - Only using spinner (Quillbot), 17.25% unique
+        - Using both, 100% unique
+    - Spinners Test:
+        1. Quillbot
+        2. WordAI
+        3. Spin Rewriter
+        4. Clever Spinner
