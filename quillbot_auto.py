@@ -11,39 +11,43 @@ url = "https://quillbot.com/login/"
 driver.get(url)
 time.sleep(3)
 
+while True:
+    try:
+        driver.find_element_by_xpath('//*[@class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense jss110"]').send_keys("nextlvlig@gmail.com")
+        driver.find_element_by_xpath('//*[@type="password"]').send_keys("bball123")
+        driver.find_element_by_xpath('//*[@class="MuiButtonBase-root MuiButton-root MuiButton-contained auth-btn MuiButton-containedPrimary MuiButton-fullWidth"]').click()
+        break
+    except:
+        continue
+
+time.sleep(2)
+driver.refresh()
+    
+time.sleep(2)
+
+while True:
+    try:
+        driver.find_element_by_xpath('//*[@class="MuiSlider-thumb jss128 jss146 MuiSlider-thumbColorPrimary"]').click()
+        elem = driver.find_elements_by_xpath('//*[@class="MuiSlider-mark jss132"]')
+        elem[1].click()
+        break
+    except:
+        continue
+    
+time.sleep(2)
+
+driver.find_element_by_xpath('//*[@class="MuiButtonBase-root MuiTab-root jss88 MuiTab-textColorPrimary jss103 jss102"]').click()
+driver.refresh()
+
+time.sleep(1)
+
+refresh = 1
+
 def single_para_spin(paragraph):
     '''
     Takes in a string paragraph and retuns a spun string paragraph through Quillbot.
     '''
-    while True:
-        try:
-            driver.find_element_by_xpath('//*[@class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense jss110"]').send_keys("nextlvlig@gmail.com")
-            driver.find_element_by_xpath('//*[@type="password"]').send_keys("bball123")
-            driver.find_element_by_xpath('//*[@class="MuiButtonBase-root MuiButton-root MuiButton-contained auth-btn MuiButton-containedPrimary MuiButton-fullWidth"]').click()
-            break
-        except:
-            continue
-
-    time.sleep(2)
-    driver.refresh()
-    
-    time.sleep(2)
-
-    while True:
-        try:
-            driver.find_element_by_xpath('//*[@class="MuiSlider-thumb jss128 jss146 MuiSlider-thumbColorPrimary"]').click()
-            elem = driver.find_elements_by_xpath('//*[@class="MuiSlider-mark jss132"]')
-            elem[1].click()
-            break
-        except:
-            continue
-    
-    time.sleep(2)
-
-    driver.find_element_by_xpath('//*[@class="MuiButtonBase-root MuiTab-root jss88 MuiTab-textColorPrimary jss103 jss102"]').click()
-    driver.refresh()
-
-    time.sleep(1)
+    global refresh
     while True:
         try:
             driver.find_element_by_xpath('//*[@id="inputText"]').send_keys(paragraph)
@@ -64,6 +68,33 @@ def single_para_spin(paragraph):
             break
         except:
             continue
+    if refresh == 2:
+        driver.refresh()
+        time.sleep(2)
+    refresh += 1
     return " ".join(lis)
 
+def delete_input():
+    '''
+    Deletes text in Quillbot field.
+    '''
+    while True:
+        if refresh == 3:
+            break
+        try:
+            driver.find_element_by_xpath('//*[@class="MuiButtonBase-root MuiIconButton-root jss308"]').click()
+            time.sleep(1)
+            driver.find_element_by_xpath('//*[@class="MuiButtonBase-root MuiButton-root MuiButton-text jss315"]').click()
+            break
+        except:
+            continue
+
 print(single_para_spin("This is a string I want to be spun. Please make it very high quality."))
+delete_input()
+print(single_para_spin("This is another string that should and could be spun!"))
+delete_input()
+print(single_para_spin("This is another string that should and could be spun!"))
+delete_input()
+print(single_para_spin("This is another string that should and could be spun!"))
+delete_input()
+print(single_para_spin("This is another string that should and could be spun!"))
