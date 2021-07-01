@@ -34,3 +34,8 @@ Process and Parts of Article Writer
 
 6/22-6/23/21
 - Working on automating Quillbot with selenium
+
+7/1/21
+- Converting functions/files into classes to be used on Google Colab and their GPU
+- Learned about import python files, do not use "-" in file name
+- Clear kernel for importing files 
