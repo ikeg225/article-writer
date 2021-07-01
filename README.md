@@ -31,3 +31,6 @@ Process and Parts of Article Writer
         2. WordAI
         3. Spin Rewriter
         4. Clever Spinner
+
+6/22-6/23/21
+- Working on automating Quillbot with selenium

@@ -11,14 +11,11 @@ url = "https://quillbot.com/login/"
 driver.get(url)
 time.sleep(3)
 
-while True:
-    try:
-        driver.find_element_by_xpath('//*[@class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense jss110"]').send_keys("nextlvlig@gmail.com")
-        driver.find_element_by_xpath('//*[@type="password"]').send_keys("bball123")
-        driver.find_element_by_xpath('//*[@class="MuiButtonBase-root MuiButton-root MuiButton-contained auth-btn MuiButton-containedPrimary MuiButton-fullWidth"]').click()
-        break
-    except:
-        continue
+
+driver.find_element_by_xpath('//*[@class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense jss110"]').send_keys("nextlvlig@gmail.com")
+driver.find_element_by_xpath('//*[@type="password"]').send_keys("bball123")
+driver.find_element_by_xpath('//*[@class="MuiButtonBase-root MuiButton-root MuiButton-contained auth-btn MuiButton-containedPrimary MuiButton-fullWidth"]').click()
+ 
 
 time.sleep(2)
 driver.refresh()
@@ -37,6 +34,9 @@ while True:
 time.sleep(2)
 
 driver.find_element_by_xpath('//*[@class="MuiButtonBase-root MuiTab-root jss88 MuiTab-textColorPrimary jss103 jss102"]').click()
+
+time.sleep(2)
+
 driver.refresh()
 
 time.sleep(1)
@@ -78,23 +78,29 @@ def delete_input():
     '''
     Deletes text in Quillbot field.
     '''
+    global refresh
     while True:
         if refresh == 3:
+            refresh += 1
+            print("Error 1")
             break
         try:
-            driver.find_element_by_xpath('//*[@class="MuiButtonBase-root MuiIconButton-root jss308"]').click()
+            print("Error 2")
+            driver.find_element_by_xpath('//*[@d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4h-3.5z"]').click()
             time.sleep(1)
-            driver.find_element_by_xpath('//*[@class="MuiButtonBase-root MuiButton-root MuiButton-text jss315"]').click()
+            driver.find_element_by_xpath('//*[@class="MuiTouchRipple-root"]').click()
             break
         except:
+            print("Error 3")
             continue
 
 print(single_para_spin("This is a string I want to be spun. Please make it very high quality."))
 delete_input()
-print(single_para_spin("This is another string that should and could be spun!"))
+print(single_para_spin("This is another string that 1should and could be spun!1"))
 delete_input()
-print(single_para_spin("This is another string that should and could be spun!"))
+print(single_para_spin("This is another string that 2should and could be spun!2"))
 delete_input()
-print(single_para_spin("This is another string that should and could be spun!"))
+print(single_para_spin("This is another string that 3should and could be spun!3"))
 delete_input()
-print(single_para_spin("This is another string that should and could be spun!"))
+print(single_para_spin("This is another string that 4should and could be spun!4"))
+delete_input()
